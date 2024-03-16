@@ -3,9 +3,10 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 set -o pipefail
-set -ex
+set -e
 
 function upload() (
+    set -x
     scp * root@10.0.0.7:/projekt/
     scp .env root@10.0.0.7:/projekt/
 )
@@ -20,6 +21,7 @@ EOF
 )
 
 function update_crontab() (
+    set -x
     ssh root@10.0.0.7 "cd /projekt && crontab rozklad_monitoru"
 )
 
