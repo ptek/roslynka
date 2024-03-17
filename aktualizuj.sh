@@ -28,6 +28,7 @@ function update_crontab() (
 function run() (
     cd $SCRIPT_DIR
     source .venv/bin/activate
+    source .env
     python monitor.py
 )
 

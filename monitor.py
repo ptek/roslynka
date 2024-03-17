@@ -1,7 +1,14 @@
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
+from time import sleep
 from temperatura import temperatura_teraz
 from wilgotnosc import wilgotnosc_teraz
 from alarm import powiadom
 
-print("temp: " + str(temperatura_teraz()) + " moisture: " + str(wilgotnosc_teraz()))
+
+wilgotność = wilgotnosc_teraz()
+
+print("Temperatura: ", temperatura_teraz())
+print("Wilgotność: ", wilgotność)
+
+if wilgotność < 401:
+   print("Jest mi za sucho")
+   powiadom("podlej mnie!")

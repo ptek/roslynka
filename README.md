@@ -3,7 +3,9 @@
 A toy project for monitoring the humidity levels of the plants. The project is
 based on a raspberry pi, with Adafruit STEMMA Soil Sensor connected to it.
 
-Currently the Raspberry pi is running the latest dietpi image, with python3 and poetry installed. The project is using the Adafruit CircuitPython library to read the sensor data.
+The Raspberry pi is running the latest dietpi image, with python3 and poetry installed. The project is using the Adafruit CircuitPython library to read the sensor data.
+
+Alerting is done via pushover.net
 
 # Setup and Dependencies
 
