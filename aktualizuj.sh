@@ -33,8 +33,15 @@ function run() (
     python monitor.py
 )
 
+function plot() (
+    cd $SCRIPT_DIR
+    source .venv/bin/activate
+    source .env
+    python wykres.py
+)
+
 function help() {
-    echo "Usage: $0 [instaluj|zaladuj|uruchom|crontab]"
+    echo "Usage: $0 [instaluj|zaladuj|uruchom|wykres|crontab]"
 }
 
 for var in "$@"
@@ -48,6 +55,9 @@ do
             ;;
         uruchom)
             run
+            ;;
+        wykres)
+            plot
             ;;
         crontab)
             update_crontab
