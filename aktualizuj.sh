@@ -15,7 +15,8 @@ function install() (
     ssh root@10.0.0.7 << EOF
     set -ex
     cd /projekt
-    ls .venv || uv venv
+    uv --version || pip install --upgrade uv
+    ls .venv > /dev/null || uv venv
     uv pip install -r requirements.txt
 EOF
 )
@@ -33,7 +34,7 @@ function run() (
 )
 
 function help() {
-    echo "Usage: $0 [install_dependencies|update_crontab]"
+    echo "Usage: $0 [instaluj|zaladuj|uruchom|crontab]"
 }
 
 for var in "$@"

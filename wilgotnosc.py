@@ -1,4 +1,4 @@
 from sensor import polaczenie
 
-def wilgotnosc_teraz():
+def wilgotnosc_teraz() -> int:
     return polaczenie.moisture_read()
