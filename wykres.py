@@ -19,7 +19,7 @@ formatter = DatetimeTickFormatter(
 def wykres():
     df = pl.read_csv(HIST_FILE).with_columns([
         pl.col("czas").cast(pl.Datetime),
-        pl.col("wilgotność").cast(pl.Int32)
+        pl.col("wilgotność").cast(pl.Int32).rolling_mean(8)
     ]).sort("czas")
     print(df)
     plot_humidity = df.hvplot(x="czas", y="wilgotność", sort_date=False, xformatter=formatter, autorange="y", responsive=True)
